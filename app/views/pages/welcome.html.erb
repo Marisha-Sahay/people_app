@@ -1,0 +1,17 @@
+<div ng-app="app">
+  <div ng-controller="peopleCtrl">
+  <div ng-repeat="person in people" ng-click = "changeVisible(person)">
+    <div>
+      {{person.name}}
+    </div>
+    <div ng-if="person.bioVisible" ng-click = "changeVisible(person)">
+      {{person.bio}}
+    </div>
+  </div>
+  <p>Add Person Name: <input ng-model="newName"></p>
+  <p>Add Person Bio: <input ng-model="newBio"></p>
+  <p>Add Person Bio Visible: <input ng-model="newBioVisibility"></p>
+
+  <button ng-click="addData(newName,newBio,newBioVisibility)">Add Person Details</button>
+</div>
+</div>
