@@ -18,11 +18,11 @@
       bioVisible: false
     }];
 
-    $scope.addData = function(newName,newBio,newBioVisible) {
+    $scope.addData = function(newName,newBio) {
       var newData = {
         name: newName,
         bio: newBio,
-        bioVisible:newBioVisible
+        bioVisible: false
       }
       $scope.people.push(newData);
     };
@@ -34,11 +34,12 @@
     };
 
     $scope.changeVisible = function(p) {
-      if(p.bioVisible == false) {
-        p.bioVisible = true;
-    }else {
-      p.bioVisible = false;
-    }};
+      p.bioVisible = !p.bioVisible  
+    }
+
+    $scope.deletePerson = function(index) {
+      $scope.people.splice(index, 1);
+    }
 
     window.$scope = $scope;
   });

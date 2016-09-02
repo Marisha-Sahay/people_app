@@ -1,17 +1,15 @@
 <div ng-app="app">
   <div ng-controller="peopleCtrl">
-  <div ng-repeat="person in people" ng-click = "changeVisible(person)">
-    <div>
-      {{person.name}}
-    </div>
-    <div ng-if="person.bioVisible" ng-click = "changeVisible(person)">
-      {{person.bio}}
-    </div>
-  </div>
+  <div ng-repeat="person in people">
+  <h2 ng-click = "changeVisible(person)">{{person.name}}</h2>
+  <p ng-if="person.bioVisible">{{person.bio}}</p>
+  <button ng-click="deletePerson($index)">Delete Person (aka kill)</button>
+</div>
   <p>Add Person Name: <input ng-model="newName"></p>
   <p>Add Person Bio: <input ng-model="newBio"></p>
-  <p>Add Person Bio Visible: <input ng-model="newBioVisibility"></p>
 
-  <button ng-click="addData(newName,newBio,newBioVisibility)">Add Person Details</button>
+  <button ng-click="addData(newName,newBio)">Add Person Details</button>
+  <br>
+  <div>Total number of people {{people.length}} </div>
 </div>
 </div>
